@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
     sessionId: any;
 
     ngOnInit(): void {
+        this.connect();
         this.subject.subscribe((id) => {
             this.sessionId = id;
             this.stompClient.subscribe('/user/queue/orders', function (notification) {
@@ -39,7 +40,7 @@ export class AppComponent implements OnInit {
     }
 
     connect() {
-        const socket = new SockJS('${our-exclusive-url}/app');
+        const socket = new SockJS('http://localhost:8787/app');
         this.stompClient = Stomp.over(socket);
         setTimeout(() => {
             const urlarray = socket._transport.url.split('/');

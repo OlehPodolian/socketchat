@@ -3,6 +3,7 @@ package oleg.podolian.socketchat.domain;
 public class WsMessage {
 
     private String sessionId;
+    private String email;
 
     public String getEmail() {
         return email;
@@ -12,7 +13,6 @@ public class WsMessage {
         this.email = email;
     }
 
-    private String email;
 
     public String getSessionId() {
         return sessionId;

@@ -27,7 +27,11 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/ws").setAllowedOrigins("*").withSockJS().setInterceptors(httpSessionHandshakeInterceptor());
+        registry
+                .addEndpoint("/app")
+                .setAllowedOrigins("http://localhost:4200")
+                .withSockJS()
+                .setInterceptors(httpSessionHandshakeInterceptor());
     }
 
     @Bean
